@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リアルなアナログ時計 - タイムゾーン対応</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- タイムゾーン選択 -->
+        <div class="timezone-selector">
+            <label for="timezone-select">タイムゾーン:</label>
+            <select id="timezone-select">
+                <option value="local">ローカル時間</option>
+                <option value="UTC">UTC</option>
+                <option value="America/New_York">ニューヨーク (EST/EDT)</option>
+                <option value="America/Los_Angeles">ロサンゼルス (PST/PDT)</option>
+                <option value="Europe/London">ロンドン (GMT/BST)</option>
+                <option value="Europe/Paris">パリ (CET/CEST)</option>
+                <option value="Asia/Tokyo">東京 (JST)</option>
+                <option value="Asia/Shanghai">上海 (CST)</option>
+                <option value="Asia/Dubai">ドバイ (GST)</option>
+                <option value="Australia/Sydney">シドニー (AEST/AEDT)</option>
+            </select>
+        </div>
+        
+        <div class="clocks-wrapper">
+            <!-- 可変タイムゾーン時計 -->
+            <div class="clock-container">
+                <h2 id="clock1-title">ローカル時間</h2>
+                <div class="clock" id="clock1">
+                    <div class="outer-rim">
+                        <div class="inner-rim">
+                            <div class="clock-face">
+                                <!-- 時間マーカー -->
+                                <div class="hour-marker hour-12"></div>
+                                <div class="hour-marker hour-1"></div>
+                                <div class="hour-marker hour-2"></div>
+                                <div class="hour-marker hour-3"></div>
+                                <div class="hour-marker hour-4"></div>
+                                <div class="hour-marker hour-5"></div>
+                                <div class="hour-marker hour-6"></div>
+                                <div class="hour-marker hour-7"></div>
+                                <div class="hour-marker hour-8"></div>
+                                <div class="hour-marker hour-9"></div>
+                                <div class="hour-marker hour-10"></div>
+                                <div class="hour-marker hour-11"></div>
+                                
+                                <!-- 分マーカー -->
+                                <div class="minute-markers"></div>
+                                
+                                <!-- 数字 -->
+                                <div class="number number-12">12</div>
+                                <div class="number number-3">3</div>
+                                <div class="number number-6">6</div>
+                                <div class="number number-9">9</div>
+                                
+                                <!-- ブランドロゴ -->
+                                <div class="brand">SEIKO</div>
+                                <div class="sub-brand">Local Time</div>
+                                
+                                <!-- 針 -->
+                                <div class="hand hour-hand"></div>
+                                <div class="hand minute-hand"></div>
+                                <div class="hand second-hand"></div>
+                                
+                                <!-- 中心点 -->
+                                <div class="center-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- デジタル表示 -->
+                <div class="digital-time">
+                    <span id="digital-clock1"></span>
+                </div>
+                <div class="timezone-display" id="timezone-display1"></div>
+            </div>
+            
+            <!-- UTC固定時計 -->
+            <div class="clock-container">
+                <h2>UTC (協定世界時)</h2>
+                <div class="clock" id="clock2">
+                    <div class="outer-rim">
+                        <div class="inner-rim">
+                            <div class="clock-face">
+                                <!-- 時間マーカー -->
+                                <div class="hour-marker hour-12"></div>
+                                <div class="hour-marker hour-1"></div>
+                                <div class="hour-marker hour-2"></div>
+                                <div class="hour-marker hour-3"></div>
+                                <div class="hour-marker hour-4"></div>
+                                <div class="hour-marker hour-5"></div>
+                                <div class="hour-marker hour-6"></div>
+                                <div class="hour-marker hour-7"></div>
+                                <div class="hour-marker hour-8"></div>
+                                <div class="hour-marker hour-9"></div>
+                                <div class="hour-marker hour-10"></div>
+                                <div class="hour-marker hour-11"></div>
+                                
+                                <!-- 分マーカー -->
+                                <div class="minute-markers"></div>
+                                
+                                <!-- 数字 -->
+                                <div class="number number-12">12</div>
+                                <div class="number number-3">3</div>
+                                <div class="number number-6">6</div>
+                                <div class="number number-9">9</div>
+                                
+                                <!-- ブランドロゴ -->
+                                <div class="brand">ROLEX</div>
+                                <div class="sub-brand">GMT Master</div>
+                                
+                                <!-- 針 -->
+                                <div class="hand hour-hand"></div>
+                                <div class="hand minute-hand"></div>
+                                <div class="hand second-hand"></div>
+                                
+                                <!-- 中心点 -->
+                                <div class="center-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- デジタル表示 -->
+                <div class="digital-time">
+                    <span id="digital-clock2"></span>
+                </div>
+                <div class="timezone-display">UTC+00:00</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
