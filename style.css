@@ -318,6 +318,19 @@ body {
     letter-spacing: 3px;
 }
 
+.date-display {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 25px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    margin-top: -10px;
+}
+
 .timezone-display {
     color: rgba(255, 255, 255, 0.9);
     font-size: 14px;

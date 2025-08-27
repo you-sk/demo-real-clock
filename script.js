@@ -40,6 +40,12 @@ function getTimeForTimezone(timezone) {
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit'
+            }),
+            dateString: now.toLocaleDateString('ja-JP', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                weekday: 'short'
             })
         };
     }
@@ -52,8 +58,18 @@ function getTimeForTimezone(timezone) {
         second: '2-digit'
     };
     
+    const dateOptions = {
+        timeZone: timezone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        weekday: 'short'
+    };
+    
     const formatter = new Intl.DateTimeFormat('ja-JP', options);
+    const dateFormatter = new Intl.DateTimeFormat('ja-JP', dateOptions);
     const timeString = formatter.format(now);
+    const dateString = dateFormatter.format(now);
     
     const utcString = now.toLocaleString('en-US', {
         timeZone: timezone,
@@ -73,7 +89,8 @@ function getTimeForTimezone(timezone) {
         minutes: parseInt(timeString.split(':')[1]),
         seconds: parseInt(timeString.split(':')[2]),
         milliseconds: now.getMilliseconds(),
-        timeString: timeString
+        timeString: timeString,
+        dateString: dateString
     };
 }
 
@@ -98,6 +115,11 @@ function updateClock(clockId, timezone) {
     
     const digitalClock = document.getElementById(`digital-${clockId}`);
     digitalClock.textContent = time.timeString;
+    
+    const dateDisplay = document.getElementById(`date-display${clockId.slice(-1)}`);
+    if (dateDisplay) {
+        dateDisplay.textContent = time.dateString;
+    }
 }
 
 function getTimezoneOffset(timezone) {
